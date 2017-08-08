@@ -1,0 +1,20 @@
+This is a guideline to setting up CCS projects for user custumed application
+
+#1. create a new application folder inside motorware directory and designate it with desired name.
+
+#2. copy everything from corresponding board and MCU dirctory (YOUR_SELECTED_BOARD_DIR) you are using that result in the app folder should contains:
+YOUR_APP_DIR\sw\solutions\instaspin_foc\boards\YOUR_SELECTED_BOARD_DIR**
+
+#3. open CCS, create a new workspace for your application projects and add all projects in your app. folder.
+
+#4. Now each project has to be reconfigured before buiding.
+
+#5. Right click on project name>>Properties>>Resource>>Linked Resource
+#then change MW_INSTALL_DIR to the original location of motorware e.g. "C:\ti\motorware\motorware_1_01_00_18"
+
+#6. If the application is in motorware folder then change "${MW_INSTALL_DIR}" in Build>>C2000 Compiler>>Include options to "${MW_INSTALL_DIR}/../motorware_1_01_00_18"
+
+#7.Click "Edit Flags" in Build>>C2000 Compiler and change ""${MW_INSTALL_DIR}/sw/modules/hal..." to "${MW_INSTALL_DIR}/../motorware_1_01_00_18/sw/modules/hal..."
+
+Finally try building the project this should give no errors after building 
+
